@@ -1,20 +1,47 @@
 
+:root {
+  --orange: #F3A183;
+  --orangeAlt: #EC6F66;
+  --orangeDark: #f3665c;
+
+  --white: #fff;
+}
 
 body {
+  font-family: 'Poppins', sans-serif;
+
+  margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
-  background: #EC6F66;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F3A183, #EC6F66);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F3A183, #EC6F66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--orangeAlt);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, var(--orange), var(--orangeAlt));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, var(--orange), var(--orangeAlt)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
+.header {
+  width: 100%;
+  position: fixed;
+  top:0;
+  left: 0;
+  text-align: center;
+  padding-top: 1rem;
+
+  
+}
+
+.header h1 {
+  color: #fff;
+  text-shadow: 5px 5px 10px var(--orangeDark);
+}
+
 .clock {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 10px solid #fff;
 
@@ -59,4 +86,25 @@ body {
   width: 45%;
 }
 
+
+/* Icon Settings */
+.icon-setting {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  background-color: var(--orange);
+  border-radius: 50%;
+
+  color: var(--white);
+  box-shadow: 0 4px 2px 0 var(--orangeDark);
+
+  cursor: pointer;
+}
 

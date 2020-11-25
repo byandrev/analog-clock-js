@@ -35,7 +35,8 @@ const getSeconds = (date) => {
 }
 
 const convertMilitaryToStandart = (time) => {
-  return 12 - time;
+  let timeResult = (12 - time) < 0 ? -1 * (12 - time) : 12 * time;
+  return timeResult
 }
 
 
