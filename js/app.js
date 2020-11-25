@@ -43,15 +43,6 @@ const convertMilitaryToStandart = (time) => {
 
 const animationHours = (hoursStandarts) => {
   $hours.style.transform = `rotate(${hoursAndGrades[hoursStandarts]}deg)`;
-
-  // $hours.animate([
-  //   { transform: `rotate(${hoursAndGrades[hoursStandarts]}` },
-  //   { transform: `rotate(270deg)` },
-  // ], {
-  //   duration: 43200000,
-  //   fill: "forwards",
-  //   easing: "linear",
-  // });
 }
 
 const animationMinutes = (minutes) => {
@@ -64,15 +55,6 @@ const animationMinutes = (minutes) => {
   }
 
   $minutes.style.transform = `rotate(${grades}deg)`;
-
-  // $minutes.animate([
-  //   { transform: `rotate(${grades}deg` },
-  //   { transform: `rotate(270deg)` },
-  // ], {
-  //   duration: 3600000,
-  //   fill: "forwards",
-  //   easing: "linear",
-  // });
 }
 
 const animationSeconds = (seconds) => {
@@ -85,31 +67,19 @@ const animationSeconds = (seconds) => {
   }
 
   $seconds.style.transform = `rotate(${grades}deg)`;
-
-  // $seconds.animate([
-  //   { transform: `rotate(${grades}deg` },
-  //   { transform: `rotate(270deg)` },
-  // ], {
-  //   duration: 60000,
-  //   fill: "forwards",
-  //   easing: "linear",
-  // });
 }
 
 const getDate = () =>  {
   const date = new Date();
-
   let hours = getHours(date);
   let hoursStandarts = hours > 12 ? convertMilitaryToStandart(hours) : hours;
   let minutes = getMinutes(date);
-  let seconds = getSeconds(date);
-
+  let seconds = getSeconds(date)
 
   animationHours(hoursStandarts);
   animationMinutes(minutes);
   animationSeconds(seconds);
 }
-
 
 
 document.addEventListener('DOMContentLoaded', event => {

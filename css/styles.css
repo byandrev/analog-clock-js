@@ -42,31 +42,21 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: left;
-
 }
+
 
 .clock__hours {
   width: 25%;
-  transform: rotate(-90deg);
 }
+
 
 .clock__minutes {
   width: 35%;
-  transform: rotate(-90deg);
 }
 
 .clock__seconds {
   background-color: #f7695f;
   width: 45%;
-  transform: rotate(-90deg);
 }
 
 
-@keyframes animationClock {
-  0% {
-    transform: rotate(-90deg);
-  }
-  100% {
-    transform: rotate(270deg);
-  }
-}
