@@ -46,6 +46,8 @@ body {
   border: 10px solid #fff;
 
   position: relative;
+
+  box-shadow: 5px 5px 5px 0 var(--orangeDark);
 }
 
 .clock::after {
@@ -108,3 +110,84 @@ body {
   cursor: pointer;
 }
 
+
+/* Modal Settings */
+
+.modal-settings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.4);
+
+  display: flex;
+  align-items: center;
+}
+
+.modal-settings__content {
+  width: 70%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.5);
+}
+
+.modal-settings__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-settings__colors {
+  display: flex;
+}
+
+.modal-settings__color {
+  display: block;
+  width: 60px;
+  height: 30px; 
+  border-radius: 5px;
+  margin-right: .5rem;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.modal-settings__color:hover {
+  transform: scale(1.1);
+}
+
+.modal-settings__color-default {
+  background-color: #F3A183;
+}
+
+.modal-settings__color-red {
+  background-color: #e6162e;
+}
+
+.modal-settings__color-green {
+  background-color:#285045;
+}
+
+.modal-settings input {
+  display: none;
+  visibility: hidden;
+}
+
+
+/* Themes */
+
+.theme-red {
+  --orange: #EB3349;
+  --orangeAlt: #e6162e;
+  --orangeDark: #ca0d23;
+  --white: #fff; 
+}
+
+.theme-green {
+  --orange: #285045;
+  --orangeAlt: #1f4037;
+  --orangeDark: #153b31;
+  --white: #fff; 
+}

@@ -2,7 +2,8 @@
 
 const $hours = document.getElementById('hours'),
       $minutes = document.getElementById('minutes'),
-      $seconds = document.getElementById('seconds');
+      $seconds = document.getElementById('seconds'),
+      $btnSettings = document.getElementById('btn-settings');
 
 const hoursAndGrades = {
   12: -90,
@@ -81,6 +82,55 @@ const getDate = () =>  {
   animationMinutes(minutes);
   animationSeconds(seconds);
 }
+
+
+const renderModalSettings = () => {
+  const modal = document.createElement('div');
+  modal.id = 'modal';
+  modal.classList.add('modal-settings');
+  modal.innerHTML = `
+    <section class="modal-settings__content">
+      <h3 class="modal-settings__title">Settigns Clock</h3>
+      <form id="settigns-form">
+        <p>Choose a color for the clock: </p>
+        <div class="modal-settings__colors">
+          <label for="color-default" class="modal-settings__color modal-settings__color-default"></label>
+          <input type="radio" id="color-default" name="color" value="default" />
+
+          <label for="color-red" class="modal-settings__color modal-settings__color-red"></label>
+          <input type="radio" id="color-red" name="color" value="red" />
+
+          <label for="color-green" class="modal-settings__color modal-settings__color-green"></label>
+          <input type="radio" id="color-green" name="color" value="green" />
+        </div>
+      </form>
+    </section>
+  `;
+  document.body.appendChild(modal);
+
+  document.getElementById('settigns-form').addEventListener('change', e => {
+    let colorSelect = e.srcElement.value;
+
+    document.body.classList.remove('theme-red');
+    document.body.classList.remove('theme-green');
+
+    document.body.classList.add(`theme-${colorSelect}`);
+    modal.remove();
+  });
+}
+
+
+$btnSettings.addEventListener('click', event => {
+  renderModalSettings();
+});
+
+
+// Remove the modal
+document.addEventListener('keydown', event => {
+  if(event.key === 'Escape') {
+    document.getElementById('modal').remove();
+  }
+});
 
 
 document.addEventListener('DOMContentLoaded', event => {
