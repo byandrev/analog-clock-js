@@ -20,6 +20,24 @@ const hoursAndGrades = {
   11: 240,
 }
 
+// Functions for the theme
+
+const setThemeColor = (color) =>  {
+  localStorage.setItem('theme-color', color);
+} 
+
+const getThemeColor = () => {
+  return localStorage.getItem('theme-color');
+}
+
+const setTheme = (colorSelect) => {
+  document.body.className = '';
+  document.body.classList.add(`theme-${colorSelect}`);
+}
+
+
+// Functions for the get the date
+
 const getHours = (date) => {
   const hours = date.getHours();
   return hours;
@@ -110,11 +128,8 @@ const renderModalSettings = () => {
 
   document.getElementById('settigns-form').addEventListener('change', e => {
     let colorSelect = e.srcElement.value;
-
-    document.body.classList.remove('theme-red');
-    document.body.classList.remove('theme-green');
-
-    document.body.classList.add(`theme-${colorSelect}`);
+    setTheme(colorSelect);
+    setThemeColor(colorSelect);
     modal.remove();
   });
 }
@@ -136,6 +151,9 @@ document.addEventListener('keydown', event => {
 document.addEventListener('DOMContentLoaded', event => {
   getDate();
   setInterval(() => getDate(), 1000);
+
+  let colorTheme = getThemeColor();
+  setTheme(colorTheme);
 });
 
 
